@@ -6,8 +6,9 @@ window.Vue = require("vue");
 import Snotify from "vue-snotify";
 import VueSwal from "vue-swal";
 
-import router from "@/routes/routers";
-import store from "@/vuex/store";
+import router from "@/routes";
+import store from "@/store";
+
 
 Vue.use(Snotify, { toast: { showProgressBar: false } });
 Vue.use(VueSwal);
@@ -29,4 +30,4 @@ const app = new Vue({
 store
     .dispatch("checkLogin")
     .then(() => router.push({ name: "dashboard" }))
-    .catch(error => router.push({ name: "auth" }));
+    .catch(error => router.push({ name: "login" }));

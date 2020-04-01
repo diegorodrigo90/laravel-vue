@@ -1,4 +1,4 @@
-import { NAME_TOKEN } from "@/configs/configs";
+import { ACCESS_TOKEN } from "@/configs/configs";
 
 try {
     // Usa o bootstrap JS no projeto (Opcional)
@@ -27,5 +27,5 @@ if (token) {
     );
 }
 
-const tokenAcess = localStorage.getItem(NAME_TOKEN);
+const tokenAcess = localStorage.getItem(ACCESS_TOKEN);
 window.axios.defaults.headers.common["Authorization"] = `Bearer ${tokenAcess}`;

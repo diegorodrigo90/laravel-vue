@@ -14,11 +14,11 @@
 <script>
 
 export default {
-    components: {
+    // components: {
 
-    },
-    data() {
+    // },
+    // data() {
 
-    }
+    // }
 };
 </script>

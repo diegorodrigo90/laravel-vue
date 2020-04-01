@@ -6,12 +6,12 @@
                     <router-link class="nav-link" :to="{ name: 'dashboard' }">
                         Dashboard
                     </router-link>
-                    <router-link class="nav-link" :to="{ name: 'auth' }">
+                    <router-link class="nav-link" :to="{ name: 'login' }">
                         Login
                     </router-link>
                 </ul>s
 
-                <div v-if="me.name">
+                <div v-if="user">
                     <div class="dropdown">
                         <a
                             id="dropdownMenuButton"
@@ -20,7 +20,7 @@
                             aria-haspopup="true"
                             aria-expanded="false"
                         >
-                            {{ me.name }}
+                            {{ user.name }}
                         </a>
                         <div
                             class="dropdown-menu"
@@ -40,7 +40,7 @@
             </div>
         </nav>
         <div class="spacing-custon">
-            <router-view />
+            <router-view></router-view>
         </div>
     </div>
 </template>
@@ -48,8 +48,8 @@
 <script>
 export default {
     computed: {
-        me() {
-            return this.$store.state.auth.me;
+        user() {
+            return this.$store.state.auth.user;
         }
     },
     methods: {
@@ -58,7 +58,7 @@ export default {
 
             this.$snotify.success("Sucesso ao deslogar", "logout...");
 
-            this.$router.push({ name: "auth" });
+            this.$router.push({ name: "login" });
         }
     }
 };
