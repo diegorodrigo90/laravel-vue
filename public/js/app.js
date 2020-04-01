@@ -41208,11 +41208,9 @@ router.beforeEach(function (to, from, next) {
   var authenticated = _store__WEBPACK_IMPORTED_MODULE_3__["default"].state.auth.authenticated;
 
   if (requiresAuth && !authenticated) {
-    if (router.currentRoute.name !== 'login') {
-      return router.push({
-        name: 'login'
-      });
-    }
+    return router.push({
+      name: 'login'
+    })["catch"](function (err) {});
   } else if (requiresAuth && authenticated) {
     next();
   } else {

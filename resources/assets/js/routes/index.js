@@ -15,9 +15,7 @@ router.beforeEach((to, from, next) => {
     const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
     const authenticated = store.state.auth.authenticated;
     if (requiresAuth && !authenticated) {
-        if (router.currentRoute.name !== 'login') {
-            return router.push({ name: 'login'})
-        }
+        return router.push({ name: 'login' }).catch(err => { });
     } else if (requiresAuth && authenticated) {
         next();
     } else {
